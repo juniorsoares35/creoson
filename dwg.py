@@ -12,13 +12,13 @@ if creo_open == False:
 
 drawings = c.creo_list_files("*drw")
 
-if "PDF" not in c.creo_list_dirs():
-    c.creo_mkdir("PDF")
-
 for drw in drawings:
     sleep(3)
-    print(drw)
-    c.file_open(file_=drw, display=True)
-    keyboard.send("d")
-    keyboard.send("w")
-    keyboard.send("g")
+    try:
+        c.file_open(file_=drw, display=True)
+        keyboard.send("d")
+        keyboard.send("w")
+        keyboard.send("g")
+        print(f"\033[32m{drw} - exportado com sucesso!\033[32m")
+    except:
+        print(f"\033[31m{drw} - Não abriu\033[31mdwgdwg")

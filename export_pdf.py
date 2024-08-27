@@ -15,6 +15,10 @@ if "PDF" not in c.creo_list_dirs():
     c.creo_mkdir("PDF")
 
 for drw in drawings:
-    print(drw)
-    c.file_open(file_=drw, display=False)
-    c.interface_export_pdf(file_=drw, dirname="PDF")
+    try:
+        c.file_open(file_=drw, display=False)
+        c.interface_export_pdf(file_=drw, dirname="PDF")
+        print(f"\033[32m{drw} - exportado com sucesso!\033[32m")
+    except:
+        print(f"\033[31m{drw} - Não Abriu\033[31m")
+    
