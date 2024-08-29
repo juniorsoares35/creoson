@@ -17,7 +17,7 @@ menu = "-"*20
 # remove din_912 da busca
 for part in parts:
     if "912" in part:
-        part.remove(part)
+        parts.remove(part)
 
     # abre a peca caso nao esteja na memória
     if c.file_exists(part) == False:
@@ -45,8 +45,11 @@ for part in parts:
     lista = creopyson.dimension.list_detail(c, file_=part, dim_type=None)
     d = 0
     for l in range(0, 3):
-        if lista[l]['dim_type'] == 'diameter':
-            d = 1
+        try:
+            if lista[l]['dim_type'] == 'diameter':
+                d = 1
+                break
+        except:
             break           
     if d == 0:        
         try:
