@@ -39,13 +39,11 @@ for part in parts:
 
         # Renomear e salvar arquivos
         if c.file_exists(part):
-            c.file_rename(new_name=novo_nome_part,
-                          file_=part, onlysession=False)
+            c.file_rename(new_name=novo_nome_part,file_=part, onlysession=True)
             c.file_save(file_=novo_nome_part)
 
         if c.file_exists(draw):
-            c.file_rename(new_name=novo_nome_draw,
-                          file_=draw, onlysession=False)
+            c.file_rename(new_name=novo_nome_draw,file_=draw, onlysession=True)
             c.file_save(file_=novo_nome_draw)
 
         print(
